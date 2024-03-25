@@ -14,6 +14,8 @@ dotenv.config();
 //Connect to MongoDB
 connectMongoDB();
 
+__dirname = path.dirname(new URL(import.meta.url).pathname);
+
 const app = express();
 
 // Configure middleware
@@ -35,7 +37,7 @@ app.use('*', function(req,res){
 })
 
 // Start the server
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
